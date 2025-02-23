@@ -1,0 +1,48 @@
+version: '3'
+services:
+  app:
+    build: .
+    container_name: api-node
+    ports:
+      - "3001:3000"
+    volumes:
+      - .:/usr/src/app
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - db
+    networks:
+      - app-network
+    restart: always
+
+  test:
+    build: .
+    container_name: api-node-test
+    environment:
+      - NODE_ENV=test
+    depends_on:
+      - db
+    networks:
+      - app-network
+    command: bash -c "until pg_isready -h db -U user -d campanhas_db_test; do echo 'Aguardando o banco de dados...'; sleep 2; done && npm test"
+
+  db:
+    image: postgres:13
+    container_name: campanha-db
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: campanhas_db
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      - ./config:/docker-entrypoint-initdb.d
+    networks:
+      - app-network
+    restart: always
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db-data:

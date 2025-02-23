@@ -1,0 +1,32 @@
+# Node modules
+node_modules/
+
+# Logs
+*.log
+logs/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# npm package lock files
+package-lock.json
+yarn.lock
+
+# Jest coverage directory
+coverage/
+
+# Temporary files
+*.swp
+*.swo
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Debugging
+.vscode/
+.idea/
+
+data/
