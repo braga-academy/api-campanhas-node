@@ -10,6 +10,7 @@ Este projeto é uma API construída com Node.js, Express e PostgreSQL. Ele utili
 - Jest
 - PostgreSQL
 - Docker
+- Swagger
 
 ## Instruções para Rodar a Aplicação
 
