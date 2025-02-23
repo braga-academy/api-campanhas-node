@@ -3,7 +3,7 @@ const sequelize = require('../config/db')
 
 const categoriasValidas = ['Promoção', 'Descontos', 'Feriado', 'Novo Produto']
 
-const Campanha = sequelize.define('Campanha', {
+const Campanha = sequelize.define('Campanhas', {
     nome: {
         type: DataTypes.STRING,
         allowNull: false,

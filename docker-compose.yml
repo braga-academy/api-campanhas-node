@@ -7,6 +7,7 @@ services:
       - "3001:3000"
     volumes:
       - .:/usr/src/app
+      - /usr/src/app/node_modules
     environment:
       - NODE_ENV=development
     depends_on:
@@ -35,6 +36,7 @@ services:
       POSTGRES_DB: campanhas_db
     volumes:
       - db-data:/var/lib/postgresql/data
+      - /usr/src/app/node_modules
       - ./config:/docker-entrypoint-initdb.d
     networks:
       - app-network

@@ -84,22 +84,6 @@ docker-compose up -d
 
 Isso vai parar e remover os contêineres e depois reconstruir e iniciar novamente.
 
-## Configuração do Banco de Dados
-
-O PostgreSQL será iniciado com as credenciais de acesso configuradas no arquivo `docker-compose.yml`:
-
-- **Usuário**: `user`
-- **Senha**: `password`
-- **Banco de dados**: `campanha_db`
-
-A URL de conexão ao banco de dados no arquivo `.env` está configurada da seguinte forma:
-
-```
-DATABASE_URL=postgres://user:password@db:5432/campanha_db
-```
-
-Certifique-se de que as configurações estejam corretas para que o servidor Node.js se conecte corretamente ao banco de dados.
-
 ## Contribuições
 
 Se você deseja contribuir para este projeto, basta seguir os seguintes passos:
